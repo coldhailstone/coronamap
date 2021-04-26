@@ -17,21 +17,25 @@
     </div>
     <div id="map" style="width: 100%; height: 100vh;"></div>
 
+    <script type="text/javascript" src="/data/data.js"></script>
     <script>
       const mapOptions = {
           center: new naver.maps.LatLng(37.3595704, 127.105399),
           zoom: 10
       };
-
       const map = new naver.maps.Map('map', mapOptions);
 
-      const marker = new naver.maps.Marker({
-        map,
-        position: mapOptions.center,
-        icon: {
-          content: "<div class='marker'></div>"
-        }
-      })
+      for (const i in data) {
+        const target = data[i];
+        const latlng = new naver.maps.LatLng(target.lat, target.lng);
+        marker = new naver.maps.Marker({
+          map,
+          position: latlng,
+          icon: {
+            content: "<div class='marker'></div>"
+          }
+        })
+      }
     </script>
 </body>
 </html>

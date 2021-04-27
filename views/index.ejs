@@ -7,6 +7,7 @@
     <title>coronamap</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=fl3ov5w976"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -80,6 +81,10 @@
             infowindow.open(map, marker);
         }
       }
+
+      $('#current').click(() => {
+        alert("클릭 이벤트");
+      });
     </script>
 </body>
 </html>

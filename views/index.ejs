@@ -56,8 +56,18 @@
         infowindowList.push(infowindow);
       }
 
-      for (let i = 0; i < markerList.length; i++)
+      for (let i = 0; i < markerList.length; i++) {
+        naver.maps.Event.addListener(map, 'click', clickMap(i));
         naver.maps.Event.addListener(markerList[i], 'click', getClickHandler(i));
+      }
+
+      function clickMap(idx) {
+        return function() {
+          const infowindow = infowindowList[idx];
+          if (infowindow.getMap())
+            infowindow.close();
+        }
+      }
 
       function getClickHandler(idx) {
         return function() {
